@@ -153,14 +153,15 @@
     touch-action:pan-x pan-y;
   }
 
-  /* Header collapse toggle: lives in the header layout, below the tab list. */
-  .chrome-toggle-row { display:flex; justify-content:flex-end; align-items:center; padding:6px 0 8px; }
+  /* Header collapse toggle: aligned with the active section title inside the white report area. */
+  .report-section { position:relative; }
+  .report-section > .chrome-toggle-row { position:sticky; top:8px; z-index:8; display:flex; justify-content:flex-end; align-items:center; width:100%; max-width:calc(100vw - 8px); height:0; padding:0 12px 0 0; background:transparent; pointer-events:none; }
+  .report-section > .chrome-toggle-row .chrome-toggle { pointer-events:auto; }
   .chrome-toggle { border:1px solid #9fb3c8; border-radius:6px; background:#fff; color:#1f3864; padding:7px 10px; font-size:12px; font-weight:700; line-height:1; cursor:pointer; }
   .chrome-toggle:active { transform:translateY(1px); }
-  body.report-focus header { flex:0 0 auto; padding:0 8px 4px; overflow:visible; background:#0d1b2a; box-shadow:none; }
+  body.report-focus header { flex-basis:0; height:0; min-height:0; padding:0; overflow:hidden; background:transparent; box-shadow:none; }
   body.report-focus header .toolbar, body.report-focus header .tabs { display:none; }
-  body.report-focus .chrome-toggle-row { padding:6px 0 4px; }
-  body.report-focus main { padding-top:4px; }
+  body.report-focus main { padding-top:8px; }
   body.report-focus .report-section { padding-top:8px; }
 </style>
 </head>
@@ -171,11 +172,11 @@
 <input id="stockSearch" placeholder="종목명, 코드, 업종, 패턴 등 검색" type="search"/>
 <span class="meta">생성일시: 2026-05-31 03:38:00</span>
 </div>
-<nav aria-label="리포트 섹션" class="tabs" role="tablist"><button aria-controls="report-panel-0" aria-selected="true" class="tab-button active" data-tab-target="report-panel-0" id="report-tab-0" role="tab" type="button">🚀 단기 추천</button><button aria-controls="report-panel-1" aria-selected="false" class="tab-button" data-tab-target="report-panel-1" id="report-tab-1" role="tab" type="button">⚡ 진입 추천</button><button aria-controls="report-panel-2" aria-selected="false" class="tab-button" data-tab-target="report-panel-2" id="report-tab-2" role="tab" type="button">🤖 중장기 추천</button><button aria-controls="report-panel-3" aria-selected="false" class="tab-button" data-tab-target="report-panel-3" id="report-tab-3" role="tab" type="button">🔍 업종별 중장기 추천</button><button aria-controls="report-panel-4" aria-selected="false" class="tab-button" data-tab-target="report-panel-4" id="report-tab-4" role="tab" type="button">📐 그레이엄 추천</button><button aria-controls="report-panel-5" aria-selected="false" class="tab-button" data-tab-target="report-panel-5" id="report-tab-5" role="tab" type="button">🏭 업종별 요약</button><button aria-controls="report-panel-6" aria-selected="false" class="tab-button" data-tab-target="report-panel-6" id="report-tab-6" role="tab" type="button">💎 적정가 분석</button><button aria-controls="report-panel-7" aria-selected="false" class="tab-button" data-tab-target="report-panel-7" id="report-tab-7" role="tab" type="button">🇰🇷 KOSPI 전종목</button></nav><div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" id="chromeToggle" type="button">상단 숨기기</button></div>
+<nav aria-label="리포트 섹션" class="tabs" role="tablist"><button aria-controls="report-panel-0" aria-selected="true" class="tab-button active" data-tab-target="report-panel-0" id="report-tab-0" role="tab" type="button">🚀 단기 추천</button><button aria-controls="report-panel-1" aria-selected="false" class="tab-button" data-tab-target="report-panel-1" id="report-tab-1" role="tab" type="button">⚡ 진입 추천</button><button aria-controls="report-panel-2" aria-selected="false" class="tab-button" data-tab-target="report-panel-2" id="report-tab-2" role="tab" type="button">🤖 중장기 추천</button><button aria-controls="report-panel-3" aria-selected="false" class="tab-button" data-tab-target="report-panel-3" id="report-tab-3" role="tab" type="button">🔍 업종별 중장기 추천</button><button aria-controls="report-panel-4" aria-selected="false" class="tab-button" data-tab-target="report-panel-4" id="report-tab-4" role="tab" type="button">📐 그레이엄 추천</button><button aria-controls="report-panel-5" aria-selected="false" class="tab-button" data-tab-target="report-panel-5" id="report-tab-5" role="tab" type="button">🏭 업종별 요약</button><button aria-controls="report-panel-6" aria-selected="false" class="tab-button" data-tab-target="report-panel-6" id="report-tab-6" role="tab" type="button">💎 적정가 분석</button><button aria-controls="report-panel-7" aria-selected="false" class="tab-button" data-tab-target="report-panel-7" id="report-tab-7" role="tab" type="button">🇰🇷 KOSPI 전종목</button></nav>
 </header>
 <main>
 <div class="tab-panels"><div aria-labelledby="report-tab-0" class="tab-panel active" id="report-panel-0" role="tabpanel"><section class="report-section">
-<h2>🚀 단기 추천</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>🚀 단기 추천</h2>
 <p class="section-note">급등/돌파/과열 추세 후보입니다. 강한 모멘텀과 과열 위험 라벨을 함께 확인하세요.</p>
 <div class="table-wrap">
 <table>
@@ -309,7 +310,7 @@ https://news.google.com/rss/articles/cbmitafbvv95cuxpttfyq2twtvctwevxnnjdu2l3q3q
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-1" class="tab-panel" id="report-panel-1" role="tabpanel"><section class="report-section">
-<h2>⚡ 진입 추천</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>⚡ 진입 추천</h2>
 <p class="section-note">초기 진입에 적합한 단기 상승 후보입니다. 가격, 거래량, 수급 흐름을 함께 봅니다.</p>
 <div class="table-wrap">
 <table>
@@ -495,7 +496,7 @@ https://news.google.com/rss/articles/cbmicefvx3lxte9tdndhouziogj3c1jxnhzvqknynmr
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-2" class="tab-panel" id="report-panel-2" role="tabpanel"><section class="report-section">
-<h2>🤖 중장기 추천</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>🤖 중장기 추천</h2>
 <p class="section-note">ROE와 EPS 성장 모멘텀을 기반으로 고른 중장기 후보입니다.</p>
 <div class="table-wrap">
 <table>
@@ -687,7 +688,7 @@ https://news.google.com/rss/articles/cbmibefvx3lxte1ovklydlhzy1zssenjzfh3em04c0d
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-3" class="tab-panel" id="report-panel-3" role="tabpanel"><section class="report-section">
-<h2>🔍 업종별 중장기 추천</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>🔍 업종별 중장기 추천</h2>
 <p class="section-note">업종별 분산 관점에서 선별한 중장기 후보입니다.</p>
 <div class="table-wrap">
 <table>
@@ -784,7 +785,7 @@ https://news.google.com/rss/articles/cbmitkfvx3lxte5ozf9vdkl5ek9rmxd2ewfrntlpsvl
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-4" class="tab-panel" id="report-panel-4" role="tabpanel"><section class="report-section">
-<h2>📐 그레이엄 추천</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>📐 그레이엄 추천</h2>
 <p class="section-note">그레이엄 넘버와 안전마진을 기준으로 본 보수적 가치 후보입니다.</p>
 <div class="table-wrap">
 <table>
@@ -795,7 +796,7 @@ https://news.google.com/rss/articles/cbmitkfvx3lxte5ozf9vdkl5ek9rmxd2ewfrntlpsvl
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-5" class="tab-panel" id="report-panel-5" role="tabpanel"><section class="report-section">
-<h2>🏭 업종별 요약</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>🏭 업종별 요약</h2>
 <p class="section-note">업종 단위로 밸류에이션, 수익성, 상승여력 흐름을 요약한 표입니다.</p>
 <div class="table-wrap">
 <table>
@@ -806,7 +807,7 @@ https://news.google.com/rss/articles/cbmitkfvx3lxte5ozf9vdkl5ek9rmxd2ewfrntlpsvl
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-6" class="tab-panel" id="report-panel-6" role="tabpanel"><section class="report-section">
-<h2>💎 적정가 분석</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>💎 적정가 분석</h2>
 <p class="section-note">PER/PBR/DCF와 TTM 기반 적정가를 함께 비교하는 내재가치 분석 표입니다.</p>
 <div class="table-wrap">
 <table>
@@ -817,7 +818,7 @@ https://news.google.com/rss/articles/cbmitkfvx3lxte5ozf9vdkl5ek9rmxd2ewfrntlpsvl
 </table>
 </div>
 </section></div><div aria-labelledby="report-tab-7" class="tab-panel" id="report-panel-7" role="tabpanel"><section class="report-section">
-<h2>🇰🇷 KOSPI 전종목</h2>
+<div class="chrome-toggle-row"><button aria-pressed="false" class="chrome-toggle" type="button">상단 숨기기</button></div><h2>🇰🇷 KOSPI 전종목</h2>
 <p class="section-note">KOSPI 전체 분석 원본 테이블입니다. 검색창으로 종목명, 업종, 패턴을 필터링할 수 있습니다.</p>
 <div class="table-wrap">
 <table>
@@ -853,14 +854,17 @@ document.querySelectorAll('.tab-button').forEach(button => {
 });
 
 
-const chromeToggle = document.getElementById('chromeToggle');
-if (chromeToggle) {
+
+
+document.querySelectorAll('.chrome-toggle').forEach(chromeToggle => {
   chromeToggle.addEventListener('click', () => {
     const focused = document.body.classList.toggle('report-focus');
-    chromeToggle.textContent = focused ? '\uC0C1\uB2E8 \uBCF4\uAE30' : '\uC0C1\uB2E8 \uC228\uAE30\uAE30';
-    chromeToggle.setAttribute('aria-pressed', String(focused));
+    document.querySelectorAll('.chrome-toggle').forEach(button => {
+      button.textContent = focused ? '\uC0C1\uB2E8 \uBCF4\uAE30' : '\uC0C1\uB2E8 \uC228\uAE30\uAE30';
+      button.setAttribute('aria-pressed', String(focused));
+    });
   });
-}
+});
 </script>
 </body>
 </html>
