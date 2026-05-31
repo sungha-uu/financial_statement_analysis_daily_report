@@ -152,10 +152,49 @@
     -webkit-overflow-scrolling:touch;
     touch-action:pan-x pan-y;
   }
+
+  /* Header collapse toggle: focus on the active section title and data table. */
+  .chrome-toggle {
+    position:fixed;
+    top:8px;
+    right:8px;
+    z-index:60;
+    border:1px solid #9fb3c8;
+    border-radius:6px;
+    background:#fff;
+    color:#1f3864;
+    padding:7px 10px;
+    font-size:12px;
+    font-weight:700;
+    line-height:1;
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+    cursor:pointer;
+  }
+  .chrome-toggle:active { transform:translateY(1px); }
+  body.report-focus header {
+    flex-basis:0;
+    height:0;
+    min-height:0;
+    padding:0;
+    overflow:visible;
+    background:transparent;
+    box-shadow:none;
+  }
+  body.report-focus header .toolbar,
+  body.report-focus header .tabs {
+    display:none;
+  }
+  body.report-focus main {
+    padding-top:8px;
+  }
+  body.report-focus .report-section {
+    padding-top:8px;
+  }
+
 </style>
 </head>
 <body>
-<header>
+<header><button aria-pressed="false" class="chrome-toggle" id="chromeToggle" type="button">상단 숨기기</button>
 <div class="toolbar">
 <h1>국내주식분석 리포트</h1>
 <input id="stockSearch" placeholder="종목명, 코드, 업종, 패턴 등 검색" type="search"/>
@@ -841,6 +880,16 @@ document.querySelectorAll('.tab-button').forEach(button => {
     document.getElementById(button.dataset.tabTarget).classList.add('active');
   });
 });
+
+
+const chromeToggle = document.getElementById('chromeToggle');
+if (chromeToggle) {
+  chromeToggle.addEventListener('click', () => {
+    const focused = document.body.classList.toggle('report-focus');
+    chromeToggle.textContent = focused ? '\uC0C1\uB2E8 \uBCF4\uAE30' : '\uC0C1\uB2E8 \uC228\uAE30\uAE30';
+    chromeToggle.setAttribute('aria-pressed', String(focused));
+  });
+}
 </script>
 </body>
 </html>
