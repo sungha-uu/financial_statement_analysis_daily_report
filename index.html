@@ -68,6 +68,24 @@
     #stockSearch { flex:1 1 120px; min-width:120px; max-width:none; padding:8px 9px; font-size:13px; }
     .meta { flex:1 1 64px; min-width:64px; font-size:11px; }
   }
+  @media (max-width:640px) {
+    .toolbar { gap:6px; padding-bottom:8px; }
+    .toolbar h1 { font-size:16px; }
+    #stockSearch { flex:1 1 120px; min-width:120px; max-width:none; padding:8px 9px; font-size:13px; }
+    .meta { flex:1 1 64px; min-width:64px; font-size:11px; }
+  }
+  header { flex:0 0 auto; z-index:10; background:#0d1b2a; color:#fff; padding:14px 12px 0; box-shadow:0 2px 8px rgba(0,0,0,.18); box-sizing:border-box; width:100%; max-width:100%; }
+  .tab-panels { flex:1 1 auto; min-height:0; width:100%; max-width:100%; overflow:hidden; }
+  .tab-panel { height:100%; min-height:0; }
+  .tab-panel.active { display:flex; flex-direction:column; }
+  body > main { flex:1 1 0; min-height:0; height:0; overflow:hidden; }
+  main > .tab-panels { flex:1 1 0; min-height:0; height:100%; overflow:hidden; }
+  .tab-panel.active { flex:1 1 0; min-height:0; height:100%; overflow:hidden; display:flex; flex-direction:column; }
+  .tab-panel.active > .report-section { flex:1 1 0; min-height:0; height:100%; overflow:hidden; display:flex; flex-direction:column; }
+  .tab-panel.active .table-wrap { flex:1 1 0; min-height:0; height:0; overflow-x:auto; overflow-y:auto; overscroll-behavior:contain; -webkit-overflow-scrolling:touch; touch-action:pan-x pan-y; }
+  .section-title-row { display:flex; align-items:baseline; gap:8px; flex-wrap:nowrap; min-width:0; padding:0 12px 0; }
+  .section-title-row h2 { flex:0 0 auto; padding:0; margin:0 0 8px; }
+  .conversion-summary { display:inline-block; margin:0 8px 8px 0; padding:5px 8px; border:1px solid #d8dee9; border-radius:6px; background:#f8fbff; color:#1f3864; font-size:12px; font-weight:700; vertical-align:baseline; }
   header { flex:0 0 auto; z-index:10; background:#0d1b2a; color:#fff; padding:14px 12px 0; box-shadow:0 2px 8px rgba(0,0,0,.18); box-sizing:border-box; width:100%; max-width:100%; }
   .tab-panels { flex:1 1 auto; min-height:0; width:100%; max-width:100%; overflow:hidden; }
   .tab-panel { height:100%; min-height:0; }
@@ -161,7 +179,7 @@
 <div class="toolbar">
 <h1>국내주식분석 리포트</h1>
 <input id="stockSearch" placeholder="종목명, 코드, 업종, 패턴 등 전체 검색" type="search"/>
-<span class="meta">생성일시: 2026-06-03 01:19:34· 검색어 입력 시 모든 표의 행이 필터링됩니다.</span>
+<span class="meta">생성일시: 2026-06-03 20:00:08· 검색어 입력 시 모든 표의 행이 필터링됩니다.</span>
 </div>
 <nav aria-label="리포트 섹션" class="tabs" role="tablist"><button aria-controls="report-panel-0" aria-selected="true" class="tab-button active" data-tab-target="report-panel-0" id="report-tab-0" role="tab" type="button">🔥 Hot 30</button><button aria-controls="report-panel-1" aria-selected="false" class="tab-button" data-tab-target="report-panel-1" id="report-tab-1" role="tab" type="button">⚡ 진입 추천</button><button aria-controls="report-panel-2" aria-selected="false" class="tab-button" data-tab-target="report-panel-2" id="report-tab-2" role="tab" type="button">🤖 중장기 추천</button><button aria-controls="report-panel-3" aria-selected="false" class="tab-button" data-tab-target="report-panel-3" id="report-tab-3" role="tab" type="button">🔍 업종별 중장기 추천</button><button aria-controls="report-panel-4" aria-selected="false" class="tab-button" data-tab-target="report-panel-4" id="report-tab-4" role="tab" type="button">📐 그레이엄 추천</button><button aria-controls="report-panel-5" aria-selected="false" class="tab-button" data-tab-target="report-panel-5" id="report-tab-5" role="tab" type="button">🏭 업종별 요약</button><button aria-controls="report-panel-6" aria-selected="false" class="tab-button" data-tab-target="report-panel-6" id="report-tab-6" role="tab" type="button">💎 적정가 분석</button><button aria-controls="report-panel-7" aria-selected="false" class="tab-button" data-tab-target="report-panel-7" id="report-tab-7" role="tab" type="button">🇰🇷 KOSPI 전종목</button></nav></header>
 <main>
